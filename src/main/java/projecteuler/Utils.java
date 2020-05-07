@@ -11,17 +11,14 @@ import java.util.List;
 public class Utils {
 
     /**
-     * Get the first 5 numbers.
+     * Get the first 2 numbers.
      *
-     * @return a list of 1, 2, 3, 4, 5
+     * @return a list of 1, 2
      */
     public static List<Integer> getNumbers() {
         List<Integer> result = new ArrayList<>();
         result.add(1);
         result.add(2);
-        result.add(3);
-        result.add(4);
-        result.add(5);
         return result;
     }
 
