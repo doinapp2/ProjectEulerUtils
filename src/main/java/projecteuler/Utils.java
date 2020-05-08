@@ -53,6 +53,58 @@ public class Utils {
         return a.intValue() + b.intValue();
     }
 
+    public static List<Long> getPrimesUntil(int n) {
+        List<Long> primes = new ArrayList<>();
+        primes.add(2L);
+        primes.add(3L);
+        long i = 1;
+        long x1, x2;
+        boolean test1;
+        boolean test2;
+        while (true) {
+            x1 = 6 * i - 1;
+            x2 = 6 * i + 1;
+
+            test1 = true;
+            test2 = true;
+
+            Iterator<Long> it;
+            it = primes.iterator();
+            while (it.hasNext()) {
+                long prime = it.next();
+                if (prime > Math.sqrt(x1)) {
+                    break;
+                }
+                if (x1 % prime == 0) {
+                    test1 = false;
+                }
+            }
+
+            it = primes.iterator();
+            while (it.hasNext()) {
+                long prime = it.next();
+                if (prime > Math.sqrt(x2)) {
+                    break;
+                }
+                if (x2 % prime == 0) {
+                    test2 = false;
+                }
+            }
+
+            if (test1 && x1 <= n) {
+                primes.add(x1);
+            }
+            if (test2 && x2 <= n) {
+                primes.add(x2);
+            }
+            if (x1 > n || x2 > n) {
+                break;
+            }
+            i++;
+        }
+        return primes;
+    }
+
     public static void main(String[] args) {
 
     }
